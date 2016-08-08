@@ -1,16 +1,15 @@
 var _ = require('lodash');
 
-var worker = function (towns){
-  return _.forEach(towns, function (town){
-        if (town.population > 1.0) {
-          return town.size = 'big';
-        } else if (town.population > 0.5 && town.population < 1.0) {
-          return town.size = 'med';
+var worker = function (collection) {
+  return _.forEach(collection, function (item){
+        if (item.population > 1.0) {
+          return item.size = 'big';
+        } else if (item.population > 0.5) {
+          return item.size = 'med';
         } else {
-          return town.size = 'small';
+          return item.size = 'small';
         };
-      };
-  );
+    });
 };
 
 module.exports = worker;
